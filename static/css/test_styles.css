@@ -1,0 +1,98 @@
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #657c88;
+    margin: 0;
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+
+
+.text-zadatka{
+    margin-top:10px;
+    margin-bottom:10px;
+    font-weight: 600;
+}
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    border-radius: 8px;
+    z-index: 1; /* Ensure the form is above the cube */
+}
+.form-container {
+    text-align: left;
+}
+
+.question-container * {
+    box-sizing: content-box; /* or box-sizing: border-box; */
+}
+.question-container label {
+    margin: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.image-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+}
+
+#timesWatch,
+.submit-btn {
+    font-weight: 600;
+    padding: 10px;
+    background-color: rgba(1,102,162,255);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background-color: rgba(43,129,188,255);
+    cursor: pointer;
+}
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pomoc_vidljiva,
+.help{
+    font-weight: 600;
+    background-color: rgba(1,102,162,255);
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 10px;
+    color: #fff;
+    display: none;
+}
+
+.help:hover{
+    background-color: rgba(43,129,188,255);
+    cursor: pointer;
+}
+.option_image{
+    width: 300px;
+    height:250px;
+}

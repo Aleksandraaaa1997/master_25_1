@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fraction_info_easy.css') }}">
+    <title>Razlomci Info lak nivo</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="task-header">
+            <h1>Razlomci lak nivo</h1>
+        </header>
+        <section class="task-section">
+            <div class="task">
+                
+                <p>Postoje tri tipa zadataka sa razlomcima: proširivanje razlomaka, skraćivanje razlomaka i sabiranje
+                    razlomaka.</p>
+
+                <p>Svaki tip zadatka ima 3 nivoa težine: lak, srednji i težak nivo. Korisnik bira broj zadataka i
+                    težinu, dok će
+                    aplikacija slučajnim izborom odabrati tip.</p>
+            </div>
+
+
+            <div class="task">
+                <h3>Proširivanje razlomaka</h3>
+                <p> <small class="title_task">Tekst zadatka:</small>  ,,Proširi razlomak <small><math> <mfrac> <mrow> <mn>a</mn> </mrow> <mrow> <mn>b</mn> </mrow> </mfrac> </math></small>  sa c."</p>
+                <p>Imenilac razlomka će biti slučajno odabran broj između 2 i 9, a brojilac slučajno odabran broj
+                    između 1 i
+                    9.</p>
+                <p>Broj sa kojim se proširuje razlomak će biti slučajno odabran broj između 2 i 9.</p>
+            </div>
+
+            <div class="task">
+                <h3>Skraćivanje razlomaka</h3>
+                <p><small class="title_task">Tekst zadatka:</small> ,,Skrati razlomak <small><math> <mfrac> <mrow> <mn>a</mn> </mrow> <mrow> <mn>b</mn> </mrow> </mfrac> </math></small>  sa c."</p>
+                <p>Imenilac i brojilac razlomka će biti slučajno odabrani brojevi između 2 i 10.</p>
+                <p>Broj sa kojim treba da se skrati razlomak će biti slučajno odabran broj između 2 i 3.</p>
+            </div>
+
+            <div class="task">
+                <h3>Sabiranje razlomaka</h3>
+                <p><small class="title_task">Tekst zadatka:</small> ,,Saberi razlomke <small><math> <mfrac> <mrow> <mn>a</mn> </mrow> <mrow> <mn>b</mn> </mrow> </mfrac> </math></small>  i <small><math> <mfrac> <mrow> <mn>c</mn> </mrow> <mrow> <mn>d</mn> </mrow> </mfrac> </math></small> ."</p>
+                <p>Razlomci imaju isti imenilac koji je slučajno odabran broj između 2 i 13, kao i isti brojilac koji je
+                    slučajno odabran broj između 2 i 9.</p>
+            </div>
+
+
+        </section>
+    </div>
+</body>
+
+</html>

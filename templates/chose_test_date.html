@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matematička vežbanka</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/compose_test.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/compose_test.js') }}"></script>
+</head>
+
+<body>
+    <div id="cube-container"></div>
+    <div class="container">
+        <form action="/chose_test_date" method="post" target="_blank">
+            <h1>Rezultati</h1>
+            <div class="input-pairs">
+      <div class="input-container">
+                <div class="input-pair area_div">
+                    <label for="appointment">Izaberi termin kontrolnog zadatka:</label>
+                    <select name="appointment_name" id="appointment" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        {% for appointment in appointments %}
+                            <option value="{{ appointment }}">{{ appointment }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+
+            </div>
+            </div>
+            <div class="submit-button">
+                <button type="submit">Vidi rezultate</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

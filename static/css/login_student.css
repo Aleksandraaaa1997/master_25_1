@@ -1,0 +1,121 @@
+body {
+    font-family: 'Verdana', sans-serif;
+    background-image: url('/static/images/background_images/home_background.jpg');
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* Adjust this property */
+    height: 100vh; /* Ensure this is needed based on your design */
+
+}
+h1{
+    margin-top:20px;
+    margin-button:100px;
+}
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    border-radius: 8px;
+    z-index: 1; /* Ensure the form is above the cube */
+}
+
+#cube-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow user interactions with the form */
+    z-index: 0; /* Set a lower z-index to position it behind the form */
+}
+
+.input-date-time,
+.input-pair {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 8px;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.input-pair:hover {
+    background-color: rgba(255, 255, 255, 1); /* Fully opaque white background on hover */
+}
+
+.input-pair select {
+    appearance: none;
+    border: none;
+    background: transparent;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.input-pair:after {
+    content: '\25BC';
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+label {
+    text-align: left;
+    width: 30%;
+    margin-right: 10px;
+    color: #000; /* White label text color */
+}
+
+select {
+    width: 60%;
+}
+
+.add-more-button,
+.submit-button {
+    display: flex;
+    padding-top: 0px;
+    justify-content: center; /* Center the button horizontally within the div */
+    align-items: center; /* Center the button vertically within the div */
+    margin-top: 20px; /* Add some space between the input pairs and the submit button */
+}
+
+.add-more-button button,
+.submit-button button {
+    background-color: rgba(1,102,162,255);
+    color: #ffffff;
+    border: none;
+    font-weight: bolder;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Make the button fill the width of the container */
+    padding: 10px; /* Add padding to the button for better aesthetics */
+    box-sizing: border-box; /* Ensure padding doesn't affect the width */
+}
+
+.add-more-button button:hover,
+.submit-button button:hover {
+    background-color: rgba(43,129,188,255);
+}
+
+.input-container {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 15px; /* Add padding for a cleaner look */
+    border: 2px solid #ddd; /* Add a border */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+    /*background-color: rgba(255, 255, 255, 0.8);  Semi-transparent white background */
+    transition: background-color 0.3s ease;
+}

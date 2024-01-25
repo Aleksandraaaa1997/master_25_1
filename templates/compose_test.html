@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provera iz matematike</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/compose_test.css') }}">
+
+
+</head>
+
+
+<body>
+    <div id="cube-container"></div>
+    <div class="container">
+        <form action="/verify_test" method="post">
+            <h1>Provera znanja iz matematike</h1>
+            <div class="input-pairs">
+                <div class="input-date-time">
+                    <input type="text" id="testName" name="testName" class="form-control"
+                        placeholder="Unesite naziv za kontrolni zadatak:" required
+                        oninvalid="this.setCustomValidity('Niste uneli naziv kontrolnog zadatka')"
+                        oninput="this.setCustomValidity('')">
+                </div>
+                <div class="input-date-time">
+                    <input class="form-control"
+                        placeholder="Unesite vreme predviđeno za izradu kontrolnog zadatka u minutima:" type="text"
+                        id="vremeZaRad" name="vremeZaRad" pattern="\d+"
+                        title="Molim vas unesitem brojem koliko minuta želite kontrolni da se radi" required
+                        oninvalid="this.setCustomValidity('Niste uneli predviđeno vreme za izradu kontrolnog zadatka u minutima')"
+                        oninput="this.setCustomValidity('')">
+                </div>
+
+                <!-- New input fields for 'start date' and 'end date' -->
+                <div class="input-date-time">
+                    <label>Datum i vreme od kada će kontrolni biti dostupan:</label>
+                    <div>
+                        <select id="start_day" name="start_day" required
+                            oninvalid="this.setCustomValidity('Ovo polje je obavezno!')"></select>
+
+                        <select id="start_month" name="start_month" required
+                            oninvalid="this.setCustomValidity('Ovo polje je obavezno!')"></select>
+
+                        <select id="start_year" name="start_year" required
+                            oninvalid="this.setCustomValidity('Ovo polje je obavezno!')"></select>
+
+                        <select id="start_hours" name="start_hours" required
+                            oninvalid="this.setCustomValidity('Ovo polje je obavezno!')"></select>
+                        <p>:</p>
+                        <select id="start_minutes" name="start_minutes" required
+                            oninvalid="this.setCustomValidity('Ovo polje je obavezno!')"></select>
+                    </div>
+
+                </div>
+
+                <div class="input-date-time">
+                    <label>Datum i vreme do kada će kontrolni biti dostupan:</label>
+                    <div>
+                        <select id="end_day" name="end_day" required
+                            oninvalid="this.setCustomValidity('Ovo polje je obavezno!')"></select>
+
+                        <select id="end_month" name="end_month" required
+                            oninvalid="this.setCustomValidity('Ovo polje je obavezno!')"></select>
+
+                        <select id="end_year" name="end_year" required
+                            oninvalid="this.setCustomValidity('Ovo polje je obavezno!')"></select>
+
+                        <select id="end_hours" name="end_hours" required
+                            oninvalid="this.setCustomValidity('Ovo polje je obavezno!')"></select>
+                        <p>:</p>
+                        <select id="end_minutes" name="end_minutes" required
+                            oninvalid="this.setCustomValidity('Ovo polje je obavezno!')"></select>
+                    </div>
+
+                </div>
+                
+
+                <div class="input-container">
+                    <div class="input-pair area_div">
+                        <label class="col-6" for="area">Izaberite oblast:</label>
+                        <select class="area" name="area_name">
+                            {% for option in areas %}
+                            <option value="{{ option }}">{{ option }} </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="input-pair difficulty_div">
+                        <label class="col-6" for="difficulty">Izaberite težinu zadataka:</label>
+                        <select class="difficulty" name="difficulty_name">
+                            {% for option in difficulty %}
+                            <option value="{{ option }}">{{ option }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="input-pair quantity_div">
+                        <label class="col-6" for="quantity">Izaberite koliko zadataka želite:</label>
+                        <select class="quantity" name="quantity_name">
+                            {% for option in quantity %}
+                            <option value="{{ option }}">{{ option }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="submit-button">
+                <button type="submit">Kreirajte kontrolni</button>
+            </div>
+            <div class="add-more-button">
+                <button type="button" onclick="addMoreInputPairs()">Dodajte još zadataka</button>
+            </div>
+            <div class="add-more-button">
+                
+                <a style="color: white;" href="{{ url_for('task_descriptions') }}" target="_blank" >Informacije o zadacima</a>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/compose_test.js') }}"></script>
+</body>
+
+</html>

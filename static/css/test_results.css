@@ -1,0 +1,80 @@
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #657c88;
+    margin: 0;
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    border-radius: 8px;
+    z-index: 1; /* Ensure the form is above the cube */
+}
+h2 {
+    color: #000000;
+    font-weight: bold;
+}
+
+table {
+    width: 80%; /* Set the width of the table to 80% of the container */
+    margin: auto; /* Center the table within the container */
+    border-collapse: separate;
+    font-size: 5px;
+}
+
+th, td {
+    font-size: small;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: rgba(1,102,162,255);
+}
+td{
+    background-color: #fff;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+strong {
+    font-weight: bold;
+}
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgba(1,102,162,255);
+    color: #fff;
+    border-radius: 8px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgba(43,129,188,255);
+}
+form {
+    width: 80%; /* Set the width of the table to 80% of the container */
+    margin: auto; /* Center the table within the container */
+    border-collapse: collapse;
+}

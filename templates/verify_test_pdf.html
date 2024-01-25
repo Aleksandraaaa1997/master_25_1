@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test iz matematike</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/verify_test_pdf.css') }}">
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+
+<div class="container">
+    <form class="form-container" action="/confirm_test" method="post" id="form">
+        <h1>Zadaci:</h1>
+        {% for question in questions %}
+        <div class="question-container">
+            <div class="text-zadatka">
+            {{ question['text']|safe }}
+             </div>
+            {% if question['pdf_options'] %}
+            {% for option in question['pdf_options'] %}
+            <label class="image-option">
+                <input type="radio" name="question_{{ question['id'] }}" value="{{ option }}"> {{ option|safe }}
+            </label><br>
+            {% endfor %}
+            {% else %}
+            {% for option in question['options'] %}
+            <label>
+                <input type="radio" name="question_{{ question['id'] }}" value="{{ option }}"> {{ option|safe }}
+            </label><br>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <hr>
+        {% endfor %}
+        <div class="footer">
+
+        </div>
+        <input type="hidden" name="professor_username" value="{{professor}}">
+        <input type="hidden" name="test_name" value="{{test_name}}">
+    </form>
+    <input type="hidden" id="total_time" name="total_time" value="{{ vreme }}">
+
+</div>
+<script type="text/javascript" src="{{ url_for('static', filename='js/verify_test.js') }}"></script>
+</body>
+</html>

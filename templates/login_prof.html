@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login_prof.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Login Page</title>
+</head>
+<body>
+
+    <div class="container">
+        {% if input_data['username_exist'] %}
+        <div class="alert alert-danger" role="alert">
+          Korisnik sa datim korisničkim imenom ne postoji. Proverite korisničko ime ili se <a href="{{ url_for('register') }}">registrujte</a>!
+        </div>
+        {% endif %}
+        {% if input_data['user_not_verified'] %}
+        <div class="alert alert-warning" role="alert">
+          Korisnik sa datim korisničkim imenom nije verifikovan. Molim vas proverite svoj inbox i verifikujte vašu email adresu!
+        </div>
+        {% endif %}
+        {% if input_data['verified_token'] %}
+        <div class="alert alert-success" role="alert">
+          Uspešno ste verifikovali vaš token! Molim vas ulogujte se.
+        </div>
+        {% endif %}
+        {% if input_data['user_wrong_pass'] %}
+        <div class="alert alert-danger" role="alert">
+          Pogrešna šifra!
+        </div>
+        {% endif %}
+        <h1>Prijava:</h1>
+        <form action="/login_prof" method="post">
+            <label for="username">Korisničko ime:</label>
+            <input type="text" id="username" name="username" required oninvalid="this.setCustomValidity('Niste uneli korisničko ime')" oninput="this.setCustomValidity('')">
+
+            <label for="password">Šifra:</label>
+            <input type="password" id="password" name="password" required oninvalid="this.setCustomValidity('Niste uneli šifru')" oninput="this.setCustomValidity('')">
+
+            <input type="submit" value="Prijavi se">
+
+            <p>Nemate nalog? <a href="{{ url_for('register') }}">Registrujte se.</a></p>
+        </form>
+    </div>
+</body>
+</html>

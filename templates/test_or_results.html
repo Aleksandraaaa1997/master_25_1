@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <title>Your Web App</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Dobrodošli!</h1>
+        <h2>Izaberite jednu od sledećih opcija:</h2>
+        <div class="button-container">
+            <a href="{{ url_for('compose_test') }}" class="button">Kreirajte kontrolni</a>
+            <a href="{{ url_for('chose_test_date') }}" class="button">Pogledajte rezultate</a>
+        </div>
+    </div>
+</body>
+</html>

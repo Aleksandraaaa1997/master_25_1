@@ -1,0 +1,58 @@
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #85c78f;
+    background-image: url('/static/images/background_images/home_background.jpg');
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* Adjust this property */
+    height: 100vh; /* Ensure this is needed based on your design */
+
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+}
+
+input {
+    padding: 8px;
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+
+input[type="submit"] {
+    background-color: rgba(1,102,162,255);
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: rgba(43,129,188,255);
+}
+
+a {
+    color: rgba(1,102,162,255);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

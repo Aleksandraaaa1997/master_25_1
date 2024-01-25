@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test iz matematike</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test_styles.css') }}">
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+
+<div class="container">
+    <form class="form-container" action="/confirm_test" method="post" id="form">
+        <h1>Zadaci:</h1>
+        {% for question in questions %}
+        <div class="question-container">
+            <div class="text-zadatka">
+            {{ question['text']|safe }}
+             </div>
+            {% if question['image_options'] %}
+            {% for option_image in question['image_options'] %}
+            <label class="image-option">
+                <input type="radio" name="question_{{ question['id'] }}" value="{{ option_image }}">
+                <img class="responsive-image" src="{{ option_image }}" alt="Option Image">
+            </label><br>
+            {% endfor %}
+            {% else %}
+            {% for option in question['options'] %}
+            <label>
+                <input type="radio" name="question_{{ question['id'] }}" value="{{ option }}"> {{ option|safe }}
+            </label><br>
+            {% endfor %}
+            {% endif %}
+            {% for i, pomoc_text in question['helps'] %}
+            {% if i==0 %}
+                <!-- Add a class to the help content -->
+                <label class="pomoc_vidljiva" id="pomoc_vidljiva_{{ question['id'] }}_{{ i }}" style="display: none;">{{ pomoc_text|safe }}</label><br>
+
+                <!-- Add an onclick attribute to the "Prikaži pomoć" label -->
+                <label style="display:block;" class="help" id="pomoc_{{ question['id'] }}_{{ i }}" onclick="toggleHelp('{{ question['id'] }}', {{ i }}, {{ question['helps'] | length }})">Prikaži pomoć {{i+1}}</label><br>
+            {% else %}
+                <!-- Add a class to the help content -->
+                <label class="pomoc_vidljiva" id="pomoc_vidljiva_{{ question['id'] }}_{{ i }}" style="display: none;">{{ pomoc_text|safe }}</label><br>
+
+                <!-- Add an onclick attribute to the "Prikaži pomoć" label -->
+                <label class="help" id="pomoc_{{ question['id'] }}_{{ i }}" onclick="toggleHelp('{{ question['id'] }}', {{ i }}, {{question['helps'] | length}})">Prikaži pomoć {{i+1}}</label><br>
+            {% endif %}
+            {% endfor %}
+            <label class="help" id="resenje_{{ question['id'] }}" onclick="prikaziResenje('{{ question['id'] }}')" clicked="False">Prikaži rešenje!</label><br>
+        </div>
+        <hr>
+        {% endfor %}
+        <div class="footer">
+        <input id="submit-btn" class="submit-btn" type="submit" value="Potvrdi" onclick="collectResults({{questions}},this)" id="submit-btn">
+
+        <div id="timesWatch">00:00</div> <!-- Display the timer -->
+        </div>
+        <input type="hidden" name="professor_username" value="{{professor}}">
+        <input type="hidden" name="test_name" value="{{test_name}}">
+    </form>
+    <button id="compose_again" class="submit-btn" onclick="refreshPage()">Sastavi ponovo</button>
+    <input type="hidden" id="total_time" name="total_time" value="{{ vreme }}">
+
+</div>
+<script type="text/javascript" src="{{ url_for('static', filename='js/verify_test.js') }}"></script>
+</body>
+</html>

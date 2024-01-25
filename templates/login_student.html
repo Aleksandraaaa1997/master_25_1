@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provera znanja iz matematike</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login_student.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="cube-container"></div>
+    <div class="container">
+        <form action="/start_test" method="post">
+            <h1>Unesite svoje podatke</h1>
+            <div  class="form-row">
+                <div class="col-6">
+                <input type="text" id="studentName" name="studentName"  class="form-control" placeholder="Ime" required>
+            </div>
+             <div class="col-6">
+                <input type="text" id="studentSurname" name="studentSurname"  class="form-control" placeholder="Prezime" required>
+            </div>
+
+             </div>
+            <div class="input-container">
+                <div class="input-pair area_div">
+                    <label for="test_list" class="col-6">Izaberi koji kontrolni zelis da radis:</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="area_name" id="test_list">
+                        {% for option in test_list %}
+                            <option value="{{ option }}">{{ option }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="submit-button">
+                <button type="submit">Započni</button>
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>

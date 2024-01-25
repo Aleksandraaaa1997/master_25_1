@@ -1,0 +1,42 @@
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #85c78f;
+    background-image: url('/static/images/background_images/home_background.jpg');
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.container {
+    margin-top: 50px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 40%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: rgba(1, 102, 162, 255);
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: rgba(43, 129, 188, 255);
+    border-color: #0056b3;
+}
+
+.mt-3 {
+    margin-top: 1rem !important;
+}
+
+/* Optional: Add more styles as needed */

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezultati</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test_results.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Rezultati za {{appointment}}</h2>
+    <form action="/send_email" method="post">
+    <table border="1"  class="table">
+        <thead>
+            <tr>
+                <th>Ime</th>
+                <th>Ocena</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+                {% for name, score in result.items() %}
+                    <tr>
+                        <td>{{ name }}</td>
+                        <td>{{ score }}</td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+        <!-- Hidden input field to store the table content -->
+        <input type="hidden" name="table_content" value="{{ table_content }}">
+        <input type="hidden" name="appointment_name" value="{{appointment}}">
+        <button class="button" style="display:none;" type="submit" id="submit_button">Pošalji rezultate na mejl adresu</button>
+    </form>
+    </div>
+<script type="text/javascript" src="{{ url_for('static', filename='js/test_results.js') }}"></script>
+</body>
+</html>

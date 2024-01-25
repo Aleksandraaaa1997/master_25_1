@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fraction_info_hard.css') }}">
+    <title>Razlomci Info lak nivo</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="task-header">
+            <h1>Razlomci težak nivo</h1>
+        </header>
+        <section class="task-section">
+            <div class="task">
+                
+                <p>Postoje tri tipa zadataka sa razlomcima: proširivanje razlomaka, skraćivanje razlomaka i sabiranje
+                    razlomaka.</p>
+
+                <p>Svaki tip zadatka ima 3 nivoa težine: lak, srednji i težak nivo. Korisnik bira broj zadataka i
+                    težinu, dok će
+                    aplikacija slučajnim izborom odabrati tip.</p>
+            </div>
+
+
+            <div class="task">
+                <h3>Proširivanje razlomaka</h3>
+                <p> <small class="title_task">Tekst zadatka:</small> ,,Sa kojim brojem treba proširiti razlomak <small><math> <mfrac> <mrow> <mn>a</mn> </mrow> <mrow> <mn>b</mn> </mrow> </mfrac> </math></small> tako da prošireni razlomak bude <small><math> <mfrac> <mrow> <mn>c</mn> </mrow> <mrow> <mn>d</mn> </mrow> </mfrac> </math></small>."</p>
+                <p>Imenilac razlomka <small><math> <mfrac> <mrow> <mn>a</mn> </mrow> <mrow> <mn>b</mn> </mrow> </mfrac> </math></small> biće slučajno odabran broj između 15 i 30, brojilac slučajno odabran broj između 20 i 30.</p>
+                <p>Imenilac (brojilac) razlomka <small><math> <mfrac> <mrow> <mn>c</mn> </mrow> <mrow> <mn>d</mn> </mrow> </mfrac> </math></small> biće proširen imenilac (brojilac) slučajno odabranim brojem između 11 i 15.</p>
+            </div>
+
+            <div class="task">
+                <h3>Skraćivanje razlomaka</h3>
+                <p><small class="title_task">Tekst zadatka:</small> ,,Skratiti razlomak <small><math> <mfrac> <mrow> <mn>a</mn> </mrow> <mrow> <mn>b</mn> </mrow> </mfrac> </math></small> i uporediti ga sa <small><math> <mfrac> <mrow> <mn>c</mn> </mrow> <mrow> <mn>d</mn> </mrow> </mfrac> </math></small>."</p>
+                <p>Imenilac i brojilac razlomka koji treba da se skrati biće slučajno odabrani brojevi između 22 i 150.
+                   </p>
+                    <p>Imenilac razlomka sa kojim treba razlomak da se uporedi biće slučajno odabran broj između 12 i 40, brojilac slučajno odabran broj između 11 i 30.</p>
+            </div>
+
+            <div class="task">
+                <h3>Sabiranje razlomaka</h3>
+                <p><small class="title_task">Tekst zadatka:</small> ,,Saberi razlomak <small><math> <mfrac> <mrow> <mn>a</mn> </mrow> <mrow> <mn>b</mn> </mrow> </mfrac> </math></small> i broj c."</p>
+                <p>Imenilac razlomka je slučajno odabran broj između 2 i 8, dok je brojilac slučajno odabran broj između 1 i 7.
+                   </p>
+                    <p>Broj sa kojim treba da se sabere razlomak je slučajno odabran broj između 2 i 9.</p>
+            </div>
+
+
+        </section>
+    </div>
+</body>
+
+</html>

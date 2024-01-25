@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezultati</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+<div class="container">
+    <h2 id="title">Rezultat testa {{test_name}} za učenika <strong>{{student_name}} {{student_surname}}</strong></h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Redni br.</th>
+                <th>Tekst Pitanja</th>
+                <th>Validacija odgovora</th>
+                <th>Korišćen nivo pomoci</th>
+                <th>Poeni</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for question in questions %}
+                <tr>
+                    <td>{{ question['redni_broj'] }}</td>
+                    <td>{{ question['text']|safe }}</td>
+                    <td>{{ question['correct_incorrect'] }}</td>
+                    <td>{{ question['help_level_table'] }}</td>
+                    <td>{{ question['earned_points'] }}/{{ question['points'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="results">
+         <p><strong>Ukupan broj poena:</strong> <strong>{{ points }}</strong> od mogućih <strong>{{ total_points }}</strong></p>
+     <p><strong>Preostalo vreme:</strong> <strong>{{ total_time_string }}</strong></p>
+    <p><strong>Ocena:</strong> <strong>{{ grade }}</strong>
+    </div>
+
+
+    <input type="hidden" name="professor_email" id="professor_email" value="{{professor_email}}">
+    </div>
+<script type="text/javascript" src="{{ url_for('static', filename='js/result.js') }}"></script>
+</body>
+</html>

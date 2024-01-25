@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+        {% if token_problems %}
+        <div class="alert alert-danger" role="alert">
+          Postoje određeni problemi sa verifikacijom tokena. Molimo vas da pokušate ponovo da se registrujete.
+        </div>
+        {% endif %}
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <h2>Registracija:</h2>
+                <form id="registerForm" method="post" action="/register" onsubmit="return validateForm(event)">
+                    <div class="form-group">
+                        <label for="email">Mejl adresa:</label>
+                        <input type="email" class="form-control" id="email" name="email" required oninvalid="this.setCustomValidity('Niste uneli pravilno svoju e-mejl adresu')" oninput="this.setCustomValidity('')">
+                        {% if email_taken %}
+                        <small class="form-text text-muted">
+                            Korisnik sa datom mejl adresom vec postoji.
+                        </small>
+                        {% endif %}
+                        <small id="emailError" class="form-text text-danger"></small>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Korisničko ime:</label>
+                        <input type="text" class="form-control" id="username" name="username" required oninvalid="this.setCustomValidity('Niste uneli korisničko ime')" oninput="this.setCustomValidity('')">
+                        {% if username_taken %}
+                        <small class="form-text text-muted">
+                            Korisnik sa datim korisničkim imenom već postoji.
+                        </small>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Šifra:</label>
+
+                        <input type="password" class="form-control" id="password" name="password" required minlength="12" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Niste uneli šifru koja ima najmanje 12 karaktera')" onchange="setCustomValidity('')">
+
+
+                    </div>
+                    <div class="form-group">
+                        <label for="repeatPassword">Ponovite šifru:</label>
+                        <input type="password" class="form-control" id="repeatPassword" name="repeatPassword" required oninvalid="this.setCustomValidity('Niste ponovili šifru')" oninput="this.setCustomValidity('')">
+                        <small id="passwordError" class="form-text text-danger"></small>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registruj se</button>
+                </form>
+                <div class="mt-3">
+                    <p>Imate profil? <a href="{{ url_for('login_prof') }}">Prijavite se.</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/register.js') }}"></script>
+</body>
+</html>

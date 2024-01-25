@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <title>Your Web App</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Provera znanja iz matematike</h1>
+        <h2>Prijavi se kao:</h2>
+        <div class="button-container">
+            <a href="{{ url_for('login_prof') }}" class="button"  class="btn btn-secondary">Profesor</a>
+            <a href="{{ url_for('login_student') }}" class="button"  class="btn btn-secondary">Učenik</a>
+        </div>
+    </div>
+</body>
+</html>

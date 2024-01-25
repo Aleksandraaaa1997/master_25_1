@@ -1,0 +1,93 @@
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Set your desired background color */
+    font-family: 'Verdana', sans-serif;
+    background-image: url('/static/images/background_images/home_background.jpg');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* Adjust this property */
+    height: 120vh; /* Ensure this is needed based on your design */
+}
+
+
+
+header {
+    margin-bottom: 30px;
+    text-align: center;
+    
+}
+
+h1 {
+    color: #333;
+    font-size: 30px;
+    font-weight: 700;
+    
+}
+
+.task-header{
+    margin-bottom: 20px;
+    margin-left: 35%;
+    margin-right: 35%;
+    padding: 5px;
+    background-color: #f9f9f9; /* Set your desired background color for task sections */
+    border-radius: 8px;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+    line-height: 0.5;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.task-section {
+    text-align: left;
+    line-height: 0.5;
+    font-size: 14px;
+}
+
+.task {
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-top: 20px;
+    background-color: #f9f9f9; /* Set your desired background color for task sections */
+    border-radius: 8px;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+    line-height: 0.5;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+h2 {
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+h3 {
+    color: #555;
+    font-size: 17px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+small{
+    font-size: large;
+}
+
+.title_task{
+    font-size:15px;
+    font-weight: 550;
+    color: #555;
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <title>Your Web App</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Informacije o zadacima iz oblasti jednačine nivo:</h2>
+        <div class="button-container">
+            <a href="{{ url_for('equations_info_easy') }}" class="button"  class="btn btn-secondary" target="_blank">Lak</a>
+            <a href="{{ url_for('equations_info_medium') }}" class="button"  class="btn btn-secondary" target="_blank">Srednji</a>
+            <a href="{{ url_for('equations_info_hard') }}" class="button"  class="btn btn-secondary" target="_blank">Težak</a>
+        </div>
+    </div>
+</body>
+</html>
