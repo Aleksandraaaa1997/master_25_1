@@ -204,7 +204,7 @@ def register():
 
         msg = Message("Verification Email", sender='noreply@demo.com', recipients=[email])
         msg.body = f'Click the following link to verify your account for user {username}:' \
-                   f' https://masteraleksandra251.azurewebsites.net/verify/{usr.token_data["token"]}'
+                   f' https://masteraleksandra.azurewebsites.net/verify/{usr.token_data["token"]}'
 
         try:
             mail.send(msg)

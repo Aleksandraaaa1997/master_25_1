@@ -207,9 +207,9 @@ class Task_h1(Hard):
         self.options = [f"y = -2x - 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='{ url_for('get_image', image_directory='functions_h1', image_name='correct_answer.png') }'>",
                         f"y = 2x + 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='{ url_for('get_image', image_directory='functions_h1', image_name='correct_answer.png') }'>",
                         f"y = -2x - 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='{ url_for('get_image', image_directory='functions_h1', image_name='incorrect_answer.png') }'>"]
-        self.pdf_options = [f"y = -2x - 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='https://masteraleksandra251.azurewebsites.net/functions_h1/correct_answer.png'>",
-                        f"y = 2x + 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='https://masteraleksandra251.azurewebsites.net/functions_h1/correct_answer.png'>",
-                        f"y = -2x - 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='https://masteraleksandra251.azurewebsites.net/functions_h1/correct_answer.png'>"]
+        self.pdf_options = [f"y = -2x - 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='https://masteraleksandra.azurewebsites.net/functions_h1/correct_answer.png'>",
+                        f"y = 2x + 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='https://masteraleksandra.azurewebsites.net/functions_h1/correct_answer.png'>",
+                        f"y = -2x - 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='https://masteraleksandra.azurewebsites.net/functions_h1/correct_answer.png'>"]
 
 
         random.shuffle(self.options)
