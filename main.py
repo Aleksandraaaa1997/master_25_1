@@ -3,14 +3,14 @@ from datetime import datetime
 import random
 import os
 import logging
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, send_file
 from flask_mail import Mail, Message
 from user import User, is_username_email_taken, token_verification,delete_user_by_email,user_authentication, mongo
 from my_fractions import generate_fractions_questions
 from equations import generate_equations_questions
 from functions import generate_functions_questions
 import pdfcrowd
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 import pdfkit
 
 # Set the logging level to DEBUG
@@ -410,12 +410,12 @@ def confirm_test():
             'allowed_time': session['allowed_time'],
             'professor': session['username']
         }
-        # client = pdfcrowd.HtmlToPdfClient('ana_master', '6e029203285c2197c8385d40acb14817')
-        # client.setPageSize('A4')
-        # with open('static/css/test_styles.css','r') as css:
-        #     style = css.read()
-        #     style += 'body{background-color: #fff;}.container {background-color: rgba(255, 255, 255, 1);}'
-        #     client.setCustomCss(style)
+        client = pdfcrowd.HtmlToPdfClient('ana_master', '6e029203285c2197c8385d40acb14817')
+        client.setPageSize('A4')
+        with open('static/css/verify_test_pdf.css','r') as css:
+            style = css.read()
+            style += 'body{background-color: #fff;}.container {background-color: rgba(255, 255, 255, 1);}'
+            client.setCustomCss(style)
 
 
         professor_mail = mongo.schoolDB.profesori.find_one({'username': session['username'], 'verified': True})['email']
@@ -425,21 +425,21 @@ def confirm_test():
         print(session['questions'])
         html_content = render_template('verify_test_pdf.html', questions=session['questions'], vreme = session['allowed_time'],
                            test_name = session['test_name'], professor = session['username'])
-        wkhtmltopdf_path = os.path.join(os.getcwd(), 'wkhtmltox', 'bin')
-        current_path = os.environ.get('PATH', '')
-        if wkhtmltopdf_path not in current_path:
-            os.environ['PATH'] = f"{wkhtmltopdf_path}{os.pathsep}{current_path}"
+        # wkhtmltopdf_path = os.path.join(os.getcwd(), 'wkhtmltox', 'bin')
+        # current_path = os.environ.get('PATH', '')
+        # if wkhtmltopdf_path not in current_path:
+        #     os.environ['PATH'] = f"{wkhtmltopdf_path}{os.pathsep}{current_path}"
 
-        pdf = pdfkit.from_string(html_content, css='./static/css/verify_test_pdf.css',options={"enable-local-file-access": ""})
+        # pdf = pdfkit.from_string(html_content, css='./static/css/verify_test_pdf.css',options={"enable-local-file-access": ""})
         # with open('example_3.pdf','wb') as p:
         #     p.write(pdf)
-        # client.convertStringToFile(html_content, f'kontrolni/{test_pdf}')
+        client.convertStringToFile(html_content, f'kontrolni/{test_pdf}')
 
         msg = Message(test_pdf[:-4],
                       sender='noreply@demo.com', recipients=[professor_mail])
-        msg.attach(f'{test_pdf}', 'application/pdf', pdf)
-        # with app.open_resource(f'kontrolni/{test_pdf}') as pdf_file:
-        #     msg.attach(f'{test_pdf}', 'application/pdf', pdf_file.read())
+        # msg.attach(f'{test_pdf}', 'application/pdf', pdf)
+        with app.open_resource(f'kontrolni/{test_pdf}') as pdf_file:
+            msg.attach(f'{test_pdf}', 'application/pdf', pdf_file.read())
 
         try:
             mail.send(msg)
@@ -745,6 +745,21 @@ def test_result():
                            test_name = test_name, professor_email=professor_email, grade=grade)
 
 
+@app.route('/images/<image_directory>/<image_name>')
+def get_image(image_directory,image_name):
+    # Construct the full path to the image
+    IMAGE_DIRECTORY = os.path.join(os.getcwd(), 'static', 'images')
+    image_path = os.path.join(IMAGE_DIRECTORY, image_directory, image_name)
+
+    # Check if the image exists
+    if os.path.isfile(image_path):
+        # Serve the image from the specified directory
+        print('ima slike')
+        return send_file(image_path, mimetype='image/png')
+    else:
+        print('nema slike')
+        # Return a 404 Not Found response if the image doesn't exist
+        return 'Image not found', 404
 # @app.route('/send_pdf_results', methods=['POST'])
 # def send_pdf_results():
 #     # Get HTML body content from the request

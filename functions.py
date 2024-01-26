@@ -3,6 +3,7 @@ from math import gcd
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+from flask import url_for
 
 class Easy:
     def __init__(self):
@@ -203,12 +204,12 @@ class Task_h1(Hard):
                         f"Grafik date funkcije mora prolaziti kroz tačke (0,-1) i (<math> <mo>-</mo> <mfrac> <mrow> <mn>1</mn> </mrow> <mrow> <mn>2</mn> </mrow> </mfrac> </math>,0).<br><br>" \
                         f"Zaključujemo da je grafik date funkcije:<br><br>" \
                         f"<img src='../static/images/functions_h1/correct_answer.png'>"
-        self.options = [f"y = -2x - 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='../static/images/functions_h1/correct_answer.png'>",
-                        f"y = 2x + 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='../static/images/functions_h1/correct_answer.png'>",
-                        f"y = -2x - 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='../static/images/functions_h1/incorrect_answer.png'>"]
-        self.pdf_options = [f"y = -2x - 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='{os.path.join(os.getcwd(), 'static', 'images', 'functions_h1','correct_answer.png')}'>",
-                        f"y = 2x + 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='{os.path.join(os.getcwd(), 'static', 'images', 'functions_h1','correct_answer.png')}'>",
-                        f"y = -2x - 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='{os.path.join(os.getcwd(), 'static', 'images', 'functions_h1','incorrect_answer.png')}'>"]
+        self.options = [f"y = -2x - 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='{ url_for('get_image', image_directory='functions_h1', image_name='correct_answer.png') }'>",
+                        f"y = 2x + 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='{ url_for('get_image', image_directory='functions_h1', image_name='correct_answer.png') }'>",
+                        f"y = -2x - 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='{ url_for('get_image', image_directory='functions_h1', image_name='incorrect_answer.png') }'>"]
+        self.pdf_options = [f"y = -2x - 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='https://masteraleksandra251.azurewebsites.net/functions_h1/correct_answer.png'>",
+                        f"y = 2x + 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='https://masteraleksandra251.azurewebsites.net/functions_h1/correct_answer.png'>",
+                        f"y = -2x - 1 i ovo je grafik koji predstavlja funkciju:<br><img class='option_image' src='https://masteraleksandra251.azurewebsites.net/functions_h1/correct_answer.png'>"]
 
 
         random.shuffle(self.options)
